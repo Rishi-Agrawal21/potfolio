@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Rishi Agrawal — BCA Student Portfolio</title>
+  <meta name="description"
+    content="Portfolio website of Rishi Agrawal — BCA student. Projects, education, skills and contact." />
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #4474c0;
+      --card: #00eaff;
+      --muted: #94a3b8;
+      --accent: #06b6d4;
+      --glass: rgba(255, 255, 255, 0.04);
+      --radius: 14px;
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(180deg, #071022 0%, #07142a 60%);
+      color: #e6eef7
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #06b6d4, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #071022
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      margin: 0
+    }
+
+    nav {
+      display: flex;
+      gap: 14px
+    }
+
+    nav a {
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    nav a:hover {
+      background: var(--glass);
+      color: #fff
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      margin-top: 28px
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6)
+    }
+
+    .intro h2 {
+      margin: 0 0 10px 0;
+      font-size: 28px
+    }
+
+    .intro p {
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #04232b;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted)
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 18px;
+      gap: 12px
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      font-weight: 800;
+      color: #fff
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center
+    }
+
+    .skill-pill {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 600
+    }
+
+    /* Sections */
+    section {
+      margin-top: 22px
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    h3 {
+      margin-top: 0
+    }
+
+    .education ul {
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .education li {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.01);
+      margin-bottom: 10px
+    }
+
+    .project {
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.005));
+    }
+
+    .project h4 {
+      margin: 0 0 6px 0
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .skill {
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      font-weight: 600
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    input,
+    textarea {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px;
+      border-radius: 8px;
+      color: inherit
+    }
+
+    textarea {
+      min-height: 120px
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .container {
+        margin: 18px;
+        padding: 16px
+      }
+
+      nav {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RA
+        </div>
+        <div>
+          <h1>Rishi Agrawal</h1>
+          <div class="small">BCA (DIGITAL MARKETING)-GLA university</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="card intro">
+          <h2>Hello — I'm Rishi </h2>
+          <p>I'm a BCA student at GLA University with a passion for web development, coding, and problem
+            solving. I build small web projects, practice algorithms, and learn full-stack development technologies.</p>
+
+          <div class="cta">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <section class="two-col" style="margin-top:16px">
+            <div class="card education">
+              <h3>Education</h3>
+              <ul>
+                <li>
+                  <strong>BCA (digital marketing) — GLA University</strong>
+                  <!-- <div class="small"></div> -->
+                </li>
+                <li>
+                  <strong>high School — AVMD INSTITUTE</strong>
+                  <div class="small">Completed 2025</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card quick-info">
+              <h3>Quick Info</h3>
+              <p class="small">Location: FIROZABAD, India</p>
+              <p class="small">Available for internships & college projects.</p>
+              <p class="small">Languages: English, Hindi</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="card profile">
+          <div class="avatar">RA</div>
+          <div><strong>Rishi Agrawal</strong></div>
+          <div class="small">BCA Student • Web Dev • Problem Solver •AI tools </div>
+
+          <div class="skills">
+            <span class="skill-pill">HTML</span>
+            <span class="skill-pill">CSS</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Git</span>
+              <span class="skill-pill">Database</span>
+                <span class="skill-pill">AI</span>
+          </div>
+
+          <div style="width:100%;margin-top:12px">
+            <a class="btn" href="#contact">Hire / Contact</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card" style="margin-top:18px">
+        <h3>About Me</h3>
+        <p class="small">I'm curious about how software works and I enjoy turning ideas into simple and polished web pages.
+          On campus I participate in coding clubs, study data structures, databases and web technologies. I enjoy
+          playing cricket, reading a book and exploring practical projects that solve small problems.I recently Go to IIT roorkee for hackathon with my team.</p>
+      </section>
+
+      <section id="projects">
+        <h3 style="margin-bottom:8px">Selected Projects</h3>
+
+        <div class="two-col">
+          <div class="project card">
+            <h4>Personal Portfolio Website</h4>
+            <p>A responsive single-page portfolio built with HTML, CSS and vanilla JavaScript. Shows projects, contact
+              form and resume link.</p>
+            <div style="margin-top:8px"><strong>Tech:</strong> HTML, CSS, JS</div>
+          </div>
+
+          <div class="project card">
+            <h4>College Event Management</h4>
+            <p>A simple CRUD app to add student events and manage registrations (prototype).</p>
+            <div style="margin-top:8px"><strong>Tech:</strong> HTML, PHP (or Node), MySQL</div>
+          </div>
+
+          <div class="project card">
+            <h4>Quiz App</h4>
+            <p>Multiple-choice quiz with scoring and a progress bar — good practice for DOM manipulation.</p>
+            <div style="margin-top:8px"><strong>Tech:</strong> JavaScript</div>
+          </div>
+           <div class="project card">
+            <h4>To-Do-List</h4>
+            <p>A responsive single-page To-D0-List built with HTML, CSS and vanilla JavaScript.</p>
+            <div style="margin-top:8px"><strong>Tech:</strong> HTML, CSS, JS</div>
+          </div>
+
+          <div class="project card">
+            <h4>Algorithm Solutions</h4>
+            <p>Repository of solved problems (sorting, searching, basic dynamic programming) in Python and C++.</p>
+            <div style="margin-top:8px"><strong>Tech:</strong> Python, C++</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h3>Skills</h3>
+        <div class="skills-list" style="margin-top:10px">
+          <span class="skill">HTML &amp; CSS</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">JavaScript (DOM)</span>
+          <span class="skill">Python (Basics)</span>
+          <span class="skill">SQL / MySQL</span>
+          <span class="skill">Git &amp; GitHub</span>
+          <span class="skill">AI &amp; TOOL</span>
+        </div>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:18px">
+        <h3>Contact</h3>
+        <p class="small">Want to collaborate on a project or need help with a college assignment? Reach out using the
+          form or email directly.</p>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <textarea id="message" placeholder="Message..." required></textarea>
+          <div style="display:flex;gap:10px">
+            <button class="btn" type="submit">Send Message</button>
+            <a class="btn secondary" href="mailto:rishi@example.com">Email Me</a>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>Made by Rishi Agrawal — BCA Student</div>
+      <div style="margin-top:6px">© <span id="year"></span> All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small JS: form handler (local) and dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill all fields.');
+        return;
+      }
+      // In a real site you'd send this to a server. For now we just show a friendly message and clear form.
+      alert('Thanks ' + name + "! Your message was received. (This is a demo contact form.)");
+      e.target.reset();
+    }
+  </script>
+</body>
+
+</html>
