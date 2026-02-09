@@ -1,4 +1,4 @@
-#Personal Portfolio Website
+<h1>Personal Portfolio Website</h1>
 
 This is my personal portfolio website created using HTML, CSS, and basic JavaScript. I made this project to practice web development and to show my education, skills, and projects as a BCA student. This website helps me understand how a real website is designed and structured.
 
